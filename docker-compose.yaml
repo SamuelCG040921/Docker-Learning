@@ -10,6 +10,7 @@ services:
       - DB_USER=root
       - DB_PASSWORD=samuel0409
       - DB_NAME=testDB
+      - IS_DOCKER=true
 
   db:
     image: mysql:8.0
