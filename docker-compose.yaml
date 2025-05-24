@@ -1,0 +1,26 @@
+services:
+  app:
+    build: .
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - db
+    environment: 
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=samuel0409
+      - DB_NAME=testDB
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: samuel0409
+      MYSQL_DATABASE: testDB
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
