@@ -1,6 +1,7 @@
 import express from 'express';
 import sequelize from './config/db';
 import userRoutes from './routes/user.routes';
+import bookRoutes from './routes/book.routes';
 
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(express.json());
 
 //Use the user action routes
 app.use('/users', userRoutes);
+app.use('/books', bookRoutes);
 
 //Sync the database and run the server
 sequelize.sync().then(() => {
